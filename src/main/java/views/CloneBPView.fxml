@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.CloneBPViewController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Please Enter a Year For the New Business Plan: ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField id="cloneYear" fx:id="yearText" prefHeight="27.0" prefWidth="88.0" />
+            <Button id="confirmButton" mnemonicParsing="false" onAction="#onClickConfirm" text="Confirm" />
+            <Button id="cancelButton" fx:id="closeButton" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
