@@ -63,7 +63,6 @@ public class AddNewSectionViewController
     	String[] sections = model.getSectionNames();
     	int ind = Arrays.asList(sections).indexOf(parent.getName());
     	SectionNameLable.textProperty().setValue(sections[ind+1]);
-    	
     }
     //only for testing
     public void setName2(String section)

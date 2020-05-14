@@ -13,6 +13,7 @@ public class Section implements Serializable
 	StringProperty name = new SimpleStringProperty();
 	StringProperty content = new SimpleStringProperty();
 	Section parent = null;
+	public ArrayList<Comment> comments =  new ArrayList<Comment>();
 	public ArrayList<Section> children =  new ArrayList<Section>();
 
 	@Override

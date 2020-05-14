@@ -11,8 +11,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import models.*;
@@ -24,6 +25,10 @@ public class BPViewController
 	BorderPane pane;
 	MyRemoteClient client;
 	Stage stage;
+	
+	@FXML
+    private VBox commentContainer;
+	
 	@SuppressWarnings({ "unchecked" })
 	public void setModel(BusinessPlan plan,MyRemoteClient client)
 	{
@@ -105,32 +110,34 @@ public class BPViewController
     {
     	if(model2 == null)
     	{
-    	try
-    	{
-    	selected = treeView.getSelectionModel().getSelectedItem();
-    	if(model.isDeletable(selected.getValue()))
-    	{
-    		removeButton.setDisable(false);
-    		
+	    	try
+	    	{
+		    	selected = treeView.getSelectionModel().getSelectedItem();
+		    	if(model.isDeletable(selected.getValue()))
+		    	{
+		    		removeButton.setDisable(false);
+		    		
+		    	}
+		    	addButton.setDisable(false);
+		    	//Text edit area
+				TextArea area2= new TextArea();
+				pane.setCenter(area2);
+				Bindings.bindBidirectional(area2.textProperty(),selected.getValue().getContent());
+	    	}
+	    	catch(Exception e)
+	    	{
+	    		System.out.println("Please Select a Section!");
+	    	}
     	}
-    	addButton.setDisable(false);
-    	
-		TextArea area2= new TextArea();
-		pane.setCenter(area2);
-		Bindings.bindBidirectional(area2.textProperty(),selected.getValue().getContent());
-    	
-    	}
-    	catch(Exception e)
-    	{
-    		System.out.println("Please Select a Section!");
-    	}}
     	else
     	{
-    	model2.selectButton();
-    	addButton.setDisable(false);
-    	removeButton.setDisable(false);
-    	}
-		
+	    	model2.selectButton();
+	    	addButton.setDisable(false);
+	    	removeButton.setDisable(false);
+    	};
+    	
+    	//Display comments
+    	this.displayComments();
     }
     //this is used to display the content of the Business Plan using recursion
     private void setContent(Section current)
@@ -154,6 +161,32 @@ public class BPViewController
     		}
     	}
     }
+    private void displayComments() {
+    	//Sprint 5 by Amon
+    	System.out.println("Displaying comments...");
+    }
+    
+    @FXML
+    void onClickAddComment(ActionEvent event) {
+		System.out.println("onclick add comment");
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(BPViewController.class.getResource("../views/AddCommentPopUp.fxml"));
+		Pane pane;
+		try {
+			pane = loader.load();
+			AddCommentController cont = loader.getController();
+			Scene commentInputScene = new Scene(pane);
+            final Stage dialog = new Stage();
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(this.stage);
+            dialog.setScene(commentInputScene);
+            dialog.show();
+		//////////////////////
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
     //this is used to create the tree view according to the sections using recursion
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	private TreeItem createTreeView(Section current)
@@ -295,7 +328,5 @@ public class BPViewController
     }
 	public void setStage(Stage stage) {
 		this.stage = stage;
-		
 	}
-   
 }

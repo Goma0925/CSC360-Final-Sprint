@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import main.MainBPView;
 import models.ConfirmationInterface;
 import models.MyRemoteClient;
+import models.Person;
 
 public class LoginController {
 	
@@ -60,23 +61,24 @@ public class LoginController {
     	boolean loggedIn = client.askForLogin(username.textProperty().get(), password.textProperty().get());
 		if(loggedIn)
 		{	
-	    Stage stage = (Stage) loginButton.getScene().getWindow();
-	    //load the slection page of Business Plan
-    	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainBPView.class.getResource("../views/businessPlansByYear.fxml"));
-		BorderPane pane;
-		try {
-			pane = loader.load();
-			System.out.println(pane);
-			SelectorControllor cont = loader.getController();
-			cont.setModel(client);
-			cont.setStage(stage);
-			Scene sc = new Scene(pane);
-			stage.setScene(sc);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}}
+		    Stage stage = (Stage) loginButton.getScene().getWindow();
+		    //load the slection page of Business Plan
+	    	FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainBPView.class.getResource("../views/businessPlansByYear.fxml"));
+			BorderPane pane;
+			try {
+				pane = loader.load();
+				System.out.println(pane);
+				SelectorControllor cont = loader.getController();
+				cont.setModel(client);
+				cont.setStage(stage);
+				Scene sc = new Scene(pane);
+				stage.setScene(sc);
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
    	}
     	else

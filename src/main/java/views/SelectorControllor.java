@@ -142,7 +142,7 @@ public class SelectorControllor {
 			model2.cancel();
 		}
     	
-}
+	}
 	  //create table of BPs
 	  public void createTable()
 	  {
@@ -162,7 +162,7 @@ public class SelectorControllor {
 	public void setModel2(ConfirmationInterface model2) {
 		this.model2 = model2;
 		
-	}
+	};
 	 
 
 }

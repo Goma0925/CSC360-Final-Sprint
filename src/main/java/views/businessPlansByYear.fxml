@@ -41,6 +41,11 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </HBox.margin></Button>
+            <Button id="cancelButton" mnemonicParsing="false" onAction="#onClickView" text="Compare">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" />
