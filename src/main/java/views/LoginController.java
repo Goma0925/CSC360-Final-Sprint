@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 import main.MainBPView;
 import models.ConfirmationInterface;
 import models.MyRemoteClient;
-import models.Person;
 
 public class LoginController {
 	
@@ -68,7 +67,6 @@ public class LoginController {
 			BorderPane pane;
 			try {
 				pane = loader.load();
-				System.out.println(pane);
 				SelectorControllor cont = loader.getController();
 				cont.setModel(client);
 				cont.setStage(stage);

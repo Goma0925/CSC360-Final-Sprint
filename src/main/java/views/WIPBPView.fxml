@@ -95,55 +95,7 @@
                         <VBox prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Remove" />
-                              <Label prefHeight="17.0" prefWidth="174.0" text="Name of the user">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <TextFlow prefHeight="78.0" prefWidth="200.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comments show up here">
-                                       <font>
-                                          <Font size="12.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </TextFlow>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Group>
-                  <Group style="-fx-background-color: lightblue;">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e4e4" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Remove" />
-                              <Label prefHeight="17.0" prefWidth="174.0" text="Name of the user">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <TextFlow prefHeight="78.0" prefWidth="200.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comments show up here">
-                                       <font>
-                                          <Font size="12.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </TextFlow>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Group>
-                  <Group style="-fx-background-color: lightblue;">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e4e4" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-                        <VBox prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Remove" />
-                              <Label prefHeight="17.0" prefWidth="174.0" text="Name of the user">
+                              <Label id="commentUsername-1" prefHeight="17.0" prefWidth="174.0" text="Name of the user">
                                  <font>
                                     <Font size="16.0" />
                                  </font>

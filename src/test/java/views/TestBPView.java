@@ -22,6 +22,7 @@ import main.MainBPView;
 import models.BusinessPlan;
 import models.MyRemoteClient;
 import models.ViewTransitionaModelInterface;
+import views.BPViewController;
 
 @ExtendWith(ApplicationExtension.class)
 public class TestBPView implements ViewTransitionaModelInterface
@@ -55,19 +56,12 @@ public class TestBPView implements ViewTransitionaModelInterface
 		try {
 			pane = loader.load();
 			BPViewController cont = loader.getController();
-			//cont.setModel(client.getCurrentBP());
-			System.out.println(cont.model2);
 			sc = new Scene(pane);
 			stage.setScene(sc);
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//FxRobot robot = new FxRobot();
-		//Thread.sleep(2000);
-		//testButtons(robot);
-		//testTextArea(robot);
-		//System.out.println(cont.model2);
 	}
 	
 	@Test
@@ -143,31 +137,7 @@ public class TestBPView implements ViewTransitionaModelInterface
 		Assertions.assertThat(selectCalled).isEqualTo(2);
 		Assertions.assertThat(selectCalled).isEqualTo(2);
 	}
-	
-	/*@Test
-	public void testTextArea(FxRobot robot)
-	{
-		enterText(robot, "Hello World");
-		
-	}*/
-	
-	/*private void enterText(FxRobot robot, String text) 
-	{
-		robot.clickOn("#idCentre College Institutional Mission Statement");
-		robot.write(text);
-	}*/
-	
-	/*private void checkText(FxRobot robot, String text)
-	{
-		Assertions.assertThat(robot.lookup("#contentText"))
-	}*/
-	/*@Test
-	public void testTreeView(FxRobot robot, String test, int index)
-	{
-		//step1 
-		robot.clickOn("#treeView");
-	}*/
-	
+
 	@Override
 	public void showCloneConfirmation() 
 	{

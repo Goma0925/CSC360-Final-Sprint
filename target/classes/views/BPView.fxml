@@ -39,7 +39,7 @@
                   <Tooltip text="Close this Business Plan" />
                </tooltip>
             </Button>
-            <Button id="closeButton" fx:id="closeButton1" mnemonicParsing="false" onAction="#onClickClose" text="Preview">
+            <Button id="previewBtn" fx:id="previewBtn" mnemonicParsing="false" onAction="#onClickPreview" text="Preview">
                <tooltip>
                   <Tooltip text="Close this Business Plan" />
                </tooltip>
@@ -63,7 +63,7 @@
       </AnchorPane>
    </bottom>
    <center>
-      <VBox id="vbox" fx:id="Vbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox id="editingArea" fx:id="Vbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="306.0" prefWidth="176.0" BorderPane.alignment="CENTER">
@@ -76,13 +76,18 @@
    <right>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox id="commentContainer" fx:id="commentContainer" prefHeight="372.0" prefWidth="200.0">
+            <VBox prefHeight="372.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="addCommentBtn" mnemonicParsing="false" onAction="#onClickAddComment" prefHeight="27.0" prefWidth="197.0" text="Add Comment">
+                  <Button id="addCommentBtn" fx:id="addCommentBtn" mnemonicParsing="false" onAction="#onClickAddComment" prefHeight="27.0" prefWidth="197.0" text="Add Comment">
                      <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets bottom="5.0" />
                      </VBox.margin>
                   </Button>
+                  <VBox id="commentContainer" fx:id="commentContainer" prefHeight="339.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
                </children>
             </VBox>
          </content>

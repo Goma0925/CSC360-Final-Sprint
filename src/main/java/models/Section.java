@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,7 +14,7 @@ public class Section implements Serializable
 	StringProperty name = new SimpleStringProperty();
 	StringProperty content = new SimpleStringProperty();
 	Section parent = null;
-	public ArrayList<Comment> comments =  new ArrayList<Comment>();
+	public LinkedList<Comment> comments =  new LinkedList<Comment>();
 	public ArrayList<Section> children =  new ArrayList<Section>();
 
 	@Override
@@ -88,5 +89,17 @@ public class Section implements Serializable
 	public void deleteChild(Section child)
 	{
 		children.remove(child);
+	}
+
+	public void addComment(Comment comment) {
+		this.comments.addLast(comment);
+	}
+	
+	public void removeComment(int index) {
+		this.comments.remove(index);
+	}
+	
+	public LinkedList<Comment> getComments(){
+		return this.comments;
 	}
 }

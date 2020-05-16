@@ -47,7 +47,7 @@ public class MainBPView extends Application
 		current.getChildren().get(0).setContent("objective1");
 		current.getChildren().get(1).setContent("objective2");
 		plan.setDepartment("CSC");
-		plan.setYear("2020");
+		plan.setYear("2019");
 		//Registry registry = LocateRegistry.createRegistry(1099);
 		server = new MyRemoteImpl();
 		server.getStoredBP().add(plan);
@@ -66,7 +66,25 @@ public class MainBPView extends Application
 		plan2.setYear("2021");
 		plan2.isEditable = false;
 		plan2.setEdit("No");
-		server.getStoredBP().add(plan2);	
+		server.getStoredBP().add(plan2);
+		
+		BusinessPlan plan3 = new CNTRAssessment();
+		Section current3 = plan.root;
+		current.setContent("root");
+		plan3.addSection(current);
+		current3.getChildren().get(1).setContent("goal2");
+		current3.addChild(new Section("Program Goals and Student Learning Objective"));
+		current3 = current.getChildren().get(0);
+		current3.setContent("goal");
+		current3 = current.getParent().getChildren().get(1);
+		current3.addChild(new Section("Program Goals and Student Learning Objective"));
+		current3.getChildren().get(0).setContent("objective1");
+		current3.getChildren().get(1).setContent("objective2");
+		plan3.setDepartment("CSC");
+		plan3.setYear("2020");
+		server.getStoredBP().add(plan3);		
+		
+		
 		client = new MyRemoteClient(server);
 		server.addPerson("X", "1", "CSC", true);
 

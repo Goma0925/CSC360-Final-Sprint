@@ -28,7 +28,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="208.0" prefWidth="600.0">
                <children>
-                  <TextArea id="commentContent" fx:id="commentContent" prefHeight="69.0" prefWidth="335.0">
+                  <TextArea id="commentTextArea" fx:id="commentContent" prefHeight="69.0" prefWidth="335.0">
                      <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </HBox.margin>
@@ -41,12 +41,12 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="addCommentCancelBtn" fx:id="addCommentCancelBtn" mnemonicParsing="false" onAction="#onClikcConfirm" text="Cancel">
+            <Button id="addCommentCancelBtn" fx:id="addCommentCancelBtn" mnemonicParsing="false" onAction="#onClikcCancel" text="Cancel">
                <HBox.margin>
                   <Insets right="70.0" />
                </HBox.margin>
             </Button>
-            <Button id="addCommentConfirmBtn" fx:id="addCommentConfirmBtn" mnemonicParsing="false" onAction="#onClickCancel" text="Confirm">
+            <Button id="addCommentConfirmBtn" fx:id="addCommentConfirmBtn" mnemonicParsing="false" onAction="#onClikcConfirm" text="Confirm">
                <HBox.margin>
                   <Insets left="70.0" />
                </HBox.margin>

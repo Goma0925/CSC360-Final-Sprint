@@ -7,29 +7,54 @@ import models.MyRemoteImpl;
 import models.Section;
 
 public class DummyNetworkClassFactory {
-	public MyRemoteClient generateTestCliet(MyRemoteImpl server) {
+	String defaultUsername = "admin";
+	String defaultPW = "adminPW";
+	private MyRemoteImpl server;
+	private MyRemoteClient client;
+	private DummyBusinessPlanFactory bpFactory = new DummyBusinessPlanFactory();
+	public String getAdminUsername() {
+		return this.defaultUsername;
+	}
+	
+	public String getAdminPW() {
+		return this.defaultPW;
+	}
+	
+	public MyRemoteClient getTestClient() {
+		return this.client;
+	}
+	
+	public MyRemoteImpl getTestServer() {
+		return this.server;
+	}
+	
+	private MyRemoteClient generateTestCliet(MyRemoteImpl server) {
 		MyRemoteClient client;
 		client = new MyRemoteClient(server);
 		return client;
 	}
 	
-	public MyRemoteImpl generateTestServer() {
-		MyRemoteImpl server;
-		BusinessPlan plan = new CNTRAssessment();
-		Section current = plan.root;
-		current.setContent("root");
-		plan.addSection(current);
-		current.getChildren().get(1).setContent("goal2");;
-		current = current.getChildren().get(0);
-		current.setContent("goal");
-		current.addChild(new Section("Program Goals and Student Learning Objective"));
-		current.getChildren().get(0).setContent("objective1");
-		current.getChildren().get(1).setContent("objective2");
-		plan.setDepartment("CSC");
-		plan.setYear("2020");
-		//Registry registry = LocateRegistry.createRegistry(1099);
+	private MyRemoteImpl generateTestServer() {
 		server = new MyRemoteImpl();
-		server.getStoredBP().add(plan);
+
+//		MyRemoteImpl server;
+//		BusinessPlan plan = new CNTRAssessment();
+//		Section current = plan.root;
+//		current.setContent("root");
+//		plan.addSection(current);
+//		current.getChildren().get(1).setContent("goal2");;
+//		current = current.getChildren().get(0);
+//		current.setContent("goal");
+//		current.addChild(new Section("Program Goals and Student Learning Objective"));
+//		current.getChildren().get(0).setContent("objective1");
+//		current.getChildren().get(1).setContent("objective2");
+//		plan.setDepartment("CSC");
+//		plan.setYear("2020");
+		BusinessPlan planA = bpFactory.generateTestPlan();
+		BusinessPlan planB = bpFactory.generateModifiedPlan();
+		
+		server.getStoredBP().add(planA);
+		server.getStoredBP().add(planB);
 		
 		BusinessPlan plan2 = new CNTRAssessment();
 		Section current2 = plan2.root;
@@ -46,8 +71,14 @@ public class DummyNetworkClassFactory {
 		plan2.isEditable = false;
 		plan2.setEdit("No");
 		server.getStoredBP().add(plan2);	
-		server.addPerson("X", "1", "CSC", true);
+		server.addPerson(this.defaultUsername, this.defaultPW, "CSC", true);
 		return server;
+	}
+
+	public DummyNetworkClassFactory() {
+		this.server = this.generateTestServer();
+		this.client = this.generateTestCliet(this.server);
+		client.askForLogin(this.getAdminUsername(), this.getAdminPW());
 	}
 	
 }

@@ -17,10 +17,13 @@ public class Comment implements Serializable{
 		this.content = content;
 	}
 	public Person getAuthor() {
-		return author;
+		return this.author;
 	}
 	public void setAuthor(Person author) {
 		this.author = author;
 	};
+	public String toString() {
+		return this.author.getUsername() + ": [" + this.content + "]";
+	}
 }
 
