@@ -12,7 +12,6 @@
 
 
     3. Preview Feature (Original)
-
     - Test in TestPreview
     - This test will 1) renders the preview page with a test business plan data, 2) jumps to the view page and edit one of the business plan's sections, and 3) goes back to the preview page to see if the content change is reflected in the preview.
 
