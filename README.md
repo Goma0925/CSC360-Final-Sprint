@@ -1,4 +1,6 @@
+
 # Solo Sprint - Amon Otsuki
+- This repository is a Maven project intended to be run on Eclipse.
 
 - Tasks Completed:
     - I completed all three tasks. The unit tests for each feature can be found in the following test files in "solesprints" directory in the test. Tests from some of the other tests from previous sprints might not work due to the change I made in the last sprint.
