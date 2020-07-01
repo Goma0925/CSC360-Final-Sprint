@@ -1,3 +1,5 @@
+## 説明
+このプロジェクトは、Mavenプロジェクトです。
 
 # Solo Sprint - Amon Otsuki
 - This repository is a Maven project intended to be run on Eclipse.
